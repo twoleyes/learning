@@ -1,0 +1,96 @@
+https://www.udemy.com/course/git-e-github-para-iniciantes/learn/lecture/5120604#overview
+tudo que esta <> é que é uma string
+commit_ID pode pegar a longa ou a curta que da na msm
+
+git config --global user.name <"Meu_Nome"> #passa a informação para todos os repositorios do usuario
+git config --global user.email <"Meu_Email">
+git config --global core.editor <"Editor_Padrao"> #ex <"atom --wait">
+
+
+=====================CMD WINDOWS======================================
+mkdir <Nome_da _Pasta> #Criar uma pasta
+touch <Nome_do_arquivo> #Criar arquivo
+cd <Nome_da_Pasta> #abrir pasta
+dir OU ls #informa arquivos dentro da pasta
+<Nome_da_particao>: #mudar de particao
+cd .. #volta diretorio raiz
+cd ../ #volta um diretorio 
+cat <Nome_do_arquivo> #printa o arquivo
+start <Nome_do_programa> #executar programa
+
+se abrir tela de digitação:
+i => para habilitar para digitar
+esc =>sair da digitaçãp
+:wq => salvar e sair
+
+
+================================GIT===============================================
+git init #inicializar diretório git dentro da pasta
+git add <Nome_do_arquivo> #deixa o git visualizar o arquivo leva pro staged
+git add . #deixa o git visualizar TODOS os arquivos leva pro staged
+git commit -m <"mensagens_da_versao"> #momento que pega os arquivos do repositorio e criar snapshop (versao)
+git commit -am <"mensagens_da_versao"> #git add+commit
+git status #mostra se houve alguma modificação nos arquivos da pasta
+git log #historico de versoes
+git log --graph #log com grafico das branchs
+git log --oneline 
+git shortlog #resumo do log 
+git show <Commit_ID> #alterações da versao em comparação com a anterior
+git diff #mostra a mudança antes do commit
+git diff --name-only #mudança de apenas um arquivo
+git reset HEAD <Nome_do_Arquivo> #tirar arquivo do stage
+git checkout <Nome_do_Arquivo> #apaga ultima versao
+git reset --soft <Commit_ID_que_deseja_tornar_como_a_ultima> #só apaga o commit
+git reset --mixed <Commit_ID_que_deseja_tornar_como_a_ultima> #apaga o commit e o stage
+git reset --hard <Commit_ID_que_deseja_tornar_como_a_ultima> #apaga tudo
+git revert <Commit_ID_que_deseja_tornar_como_a_ultima> #Da um ctrZ de tudo o que eu alterei, NAO APAGA
+
+
+#===================GIT HUB===============================
+git push -u origin master #leva o repositorio do master pro origin "upload GITHUB"
+git clone Chave_do_SSH Nome_do_Rep_Clonado #clonar repositorio do meu github
+#fork copia um repositorio que nao é seu e vc quer contribuir
+git push origin :<Nome_da_Tag> #apagar tag do GITHUB
+git push origin :<Nome_do_Branch> #apagar branch do GITHUB
+git pull #puxa as atualizacoes da nuvem GITHUB
+git push #sobe pra nuvem o ultimo commit GITHUB
+
+
+#====================BRANCH===================================
+#branch é um ponteiro movel que leva a um commit
+git checkout -b <Nome_do_branch> #cria uma branch
+git checkout HEAD~x #volta x commits
+git checkout <Commit_Id> #volta no commit da Hash
+git checkout -b <Nome_do_branch> #mudar de branch
+git checkout -D <Nome_do_branch> #deleta uma branch
+git reflog #historico das HEADs
+git branch #mostra as branchs existentes e * na que está em uso
+git merge <Nome_do_branch>
+git rebase <Nome_do_branch>
+merge=> cria um commit extra juntando os outros commits as (2 branches)
+	+operação nao destrutiva
+	-um commit extra, deixa historico puluido
+rebase=> recorta o outro commit e o cola com origem no master, assim ele será o ultimo na cronologia
+	+evita commits extras, histórico linear
+	-perde a cronologia
+
+
+#=====================TAG=======================================
+tag => Maneira de mandar projetos pro git hub com várias versoes
+git tag #lista as tags
+git tag -a <Versao Ex: 1.1.0> -m <"Mensagem_da_Tag">
+git push origin master --tag #upload da tag do master pro origin
+git tag -d <Nome_da_tag> #deleta uma tag
+
+
+#====================EXTRA=====================================
+cria arquivo de texto que chama ".gitignore" => escreve dentro dele os asquivos para ignorar 
+*.extensao => representa todos os quivos daquela extensão
+
+git stash =>pega os arquivos de motificação e armazena eles ocultamente
+git stash apply => aplica de volta esses arquivos na branch atual
+git stash list => printa a lista dos stash
+git stash clear => apaga o stash
+
+elias => tipo o define do C
+git config --global alias.<nome_novo> <nome_do_comando>
